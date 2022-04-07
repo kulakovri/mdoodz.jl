@@ -21,4 +21,5 @@ end
 
 const SetBCs_ptr = @cfunction(SetBCs, Cvoid, (Ptr{grid}, params, scale, Ptr{grid}, Ptr{grid}, Ptr{grid}))
 
-RunMDOODZ("setup.txt", BuildInitialTopography_ptr, SetParticles_ptr, SetBCs_ptr)
+RunMDOODZ("testsetup.txt", BuildInitialTopography_ptr, SetParticles_ptr, SetBCs_ptr)
+
