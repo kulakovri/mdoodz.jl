@@ -1,7 +1,7 @@
 module LibMdoodz
 
 using mdoodz_jll
-export mdoodz_jll
+export mdoodz_jll, markers, BC, BCT, grid, ETA_AVG, params, scale, markers, mat_prop, surface, GetSetupFileName, MinMaxArray, RunMDOODZ
 
 using CEnum
 
@@ -638,13 +638,5 @@ const Rg = 8.31451
 const PI = 3.14159265359
 
 const Rad_Earth = 6370000
-
-# exports
-const PREFIXES = ["CX", "clang_"]
-for name in names(@__MODULE__; all=true), prefix in PREFIXES
-    if startswith(string(name), prefix)
-        @eval export $name
-    end
-end
 
 end # module

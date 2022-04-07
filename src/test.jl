@@ -1,4 +1,5 @@
-using LibMdoodz
+include("mdoodz.jl")
+using Main.LibMdoodz
 
 function BuildInitialTopography(topo_chain::Ptr{markers}, model::params, scaling::scale)
     # topograpy here
@@ -19,7 +20,7 @@ function SetBCs(mesh::Ptr{grid}, model::params, scaling::scale, particles::Ptr{m
     return
 end
 
-const SetBCs_ptr = @cfunction(SetBCs, Cvoid, (Ptr{grid}, params, scale, Ptr{grid}, Ptr{grid}, Ptr{grid}))
+const SetBCs_ptr = @cfunction(SetBCs, Cvoid, (Ptr{grid}, params, scale, Ptr{markers}, Ptr{mat_prop}, Ptr{surface}))
 
 RunMDOODZ("testsetup.txt", BuildInitialTopography_ptr, SetParticles_ptr, SetBCs_ptr)
 
